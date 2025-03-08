@@ -45,7 +45,7 @@ local function addFtShnippets(ft, snippets)
     ftSnippets[ft] = snippets
     vim.api.nvim_create_autocmd("FileType", {
         pattern = ft,
-        group = "FiletypeSnippets",
+        group = "FileTypeShnippets",
         callback = setFiletypeShnippets
     })
 end
@@ -227,7 +227,7 @@ local function setup(opts)
     ftSnippetOverrides = opts.overrides or {}
     snippetLeader = opts.leader or snippetLeader
     ftSnippetKeys = opts.keys or {}
-    vim.api.nvim_create_augroup("Shnippets", { clear = true })
+    vim.api.nvim_create_augroup("FileTypeShnippets", { clear = true })
     createFtSnippets()
     if vim.o.ft then
         setFiletypeShnippets()
